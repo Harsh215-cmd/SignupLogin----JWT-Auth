@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors"
 import Database from "./Utils/DataBase.js";
 import AuthRouter from "./Routes/Auth.js";
+import router from "./Routes/studentroute.js";
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(express.json());
 Database()
 
 app.use("/auth",AuthRouter)
+app.use("/student",router);
 
 
 app.get("/",(req,res)=>{
